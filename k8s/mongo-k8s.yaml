@@ -31,12 +31,18 @@ spec:
         image: davidshue/mongodb:3.4
         imagePullPolicy: IfNotPresent
         env:
-        - name: MONGODB_USER
-          value: z9user
         - name: MONGODB_DATABASE
           value: vbc
+        - name: MONGODB_USER
+          valueFrom:
+            secretKeyRef:
+              name: vbc-secret
+              key: mongo-username
         - name: MONGODB_PASS
-          value: password
+          valueFrom:
+            secretKeyRef:
+              name: vbc-secret
+              key: mongo-password
       restartPolicy: Always
   selector:
     matchLabels:
