@@ -1,0 +1,26 @@
+info:
+  description: VBC Cloud
+  url: https://github.com/davidshue/vbc-cloud
+eureka:
+  instance:
+    preferIpAddress: true
+    leaseRenewalIntervalInSeconds: 10
+    statusPageUrlPath: /admin/info
+    healthCheckUrlPath: /admin/health
+  client:
+    serviceUrl:
+      defaultZone: http://${eureka.server.hostname:vbc-server}:8761/eureka/
+    healthCheck:
+      enabled: true
+logging:
+  level:
+    z9.cloud: 'DEBUG'
+
+
+---
+spring:
+  profiles: swarm
+  cloud:
+    inetutils:
+      preferredNetworks:
+        - '100.128'

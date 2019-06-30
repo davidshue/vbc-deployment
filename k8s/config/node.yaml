@@ -1,0 +1,83 @@
+server:
+  port: 8002
+spring:
+  data:
+      mongodb:
+        authentication-database: vbc
+        database: vbc
+        host: vbc-mongo
+        username: z9user
+        password: '{cipher}AQAIvjOBQeRbj/xvTJElx57dxXw+h/nv72jOE1O4/N5EFk6V6cGVPSqwc5F715NdvOsyKPa7oW4kzOGOIp6G2lg9TxBluTgmyNBzsEcgk1Ny7SVwKwEBMgRZHRPTEXwuS3S6BX/wdJyVnkVhW2W91gyWMdDS3jQ9s2VSd8tnbXBDa5jq0HuK5vAOD46/Wo5Jy++jcOnZjTg9xKhaLf2FfibFKi990ip8Lji0QhEgBBy9lbxoHV2xDhWN/2KV8D4HWqBHuC9JDl+FqHB/DsM0Pyx+NwzjkDwEzUSxuGMxlIBFNAtluFQMK2LdwkLcTWu/vsNkDlSBWuoK2ekjgk3uXHjwBlK7/PyQQnU9kJRp0dGeeEZofwWyWLb4YhSA/NJX9FI='
+kafka:
+  zookeeper: kafka-0.kafka:9093,kafka-1.kafka:9093,kafka-2.kafka:9093
+#  zookeeper: vbc-kafka:9092
+  group:
+    prefix: vbc-nodes
+  autocommit:
+    interval: 100
+  session:
+    timeout: 15000
+hystrix:
+  command:
+    default:
+      execution:
+        timeout:
+          enabled: false
+http:
+  waittime: 200
+  server: www.zenvault.com
+  port: 80
+  protocol: http
+  revive:
+    urls: /j_spring_security_check, /enc
+    logout: /j_spring_security_logout
+
+---
+spring:
+  profiles:
+    - node1
+    - vbc-node-0
+http:
+  server: appazure.zeronines.net
+  port: 8080
+server.port: 8101
+
+---
+spring:
+  profiles:
+    - node2
+    - vbc-node-1
+http:
+  server: appaws.zeronines.net
+  port: 8080
+server.port: 8102
+
+---
+spring:
+  profiles:
+    - node3
+    - vbc-node-2
+http:
+  server: ec2-54-165-45-11.compute-1.amazonaws.com
+  port: 8080
+server.port: 8103
+
+---
+spring:
+  profiles:
+    - node4
+    - vbc-node-3
+http:
+  server: zvsample.westus2.cloudapp.azure.com
+  port: 8080
+server.port: 8104
+
+---
+spring:
+  profiles:
+    - node5
+    - vbc-node-4
+http:
+  server: ec2-54-208-152-144.compute-1.amazonaws.com
+  port: 8080
+server.port: 8105

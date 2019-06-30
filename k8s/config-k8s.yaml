@@ -31,12 +31,21 @@ spec:
       - name: vbc-config
         image: davidshue/vbc-config:latest
         imagePullPolicy: IfNotPresent
+        volumeMounts:
+          - mountPath: /etc/zeronines/config
+            name: vbc-config-volume
         env:
           - name: VBC_PROFILE
-            value: k8s
+            value: native
           - name: JAVA_OPTS
             value: -server -Xms32m -Xmx64m -XX:+UseParallelOldGC
+          - name: ENVIRONMENT_ARGS
+            value: -Dspring.cloud.config.server.native.searchLocations=/etc/zeronines/config
       restartPolicy: Always
+      volumes:
+        - name: vbc-config-volume
+          configMap:
+            name: vbc-config-files
   selector:
     matchLabels:
       app: vbc-config
