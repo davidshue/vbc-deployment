@@ -1,0 +1,27 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: ingress-z9
+  annotations:    
+    kubernetes.io/ingress.class: nginx
+    ingress.kubernetes.io/rewrite-target: /
+spec:  
+  rules:
+  - host: zenvault.eastus.cloudapp.azure.com
+    http:
+      paths:      
+      - path: /
+        backend:
+          serviceName: vbc-switch
+          servicePort: 7009
+  - host: vbc.eastus.cloudapp.azure.com
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: vbc-server
+          servicePort: 8761
+      - path: /config
+        backend:
+          serviceName: vbc-config
+          servicePort: 8888

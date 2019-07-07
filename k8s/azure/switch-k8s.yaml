@@ -7,13 +7,8 @@ spec:
   selector:
     app: vbc-switch
   ports:
-    -
-      name: http
-      port: 7009
-    -
-      name: https
-      port: 7443
-  type: LoadBalancer
+    - port: 7009
+  type: NodePort
 ---
 apiVersion: apps/v1
 kind: Deployment

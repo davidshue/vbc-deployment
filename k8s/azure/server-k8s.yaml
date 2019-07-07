@@ -5,10 +5,9 @@ metadata:
 spec:
   selector:
     app: vbc-server
-  type: LoadBalancer
   ports:
     - port: 8761
-
+  type: NodePort
 ---
 apiVersion: apps/v1
 kind: Deployment
