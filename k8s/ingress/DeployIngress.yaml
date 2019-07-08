@@ -5,7 +5,12 @@ metadata:
   annotations:    
     kubernetes.io/ingress.class: nginx
     ingress.kubernetes.io/rewrite-target: /
-spec:  
+spec:
+  tls:
+    - hosts:
+      - zenvault.eastus.cloudapp.azure.com
+      - vbc.eastus.cloudapp.azure.com
+      secretName: zenvault-stag-ingress-tls
   rules:
   - host: zenvault.eastus.cloudapp.azure.com
     http:
