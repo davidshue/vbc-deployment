@@ -9,7 +9,7 @@ spring:
         username: z9user
         password: '{cipher}AQAIvjOBQeRbj/xvTJElx57dxXw+h/nv72jOE1O4/N5EFk6V6cGVPSqwc5F715NdvOsyKPa7oW4kzOGOIp6G2lg9TxBluTgmyNBzsEcgk1Ny7SVwKwEBMgRZHRPTEXwuS3S6BX/wdJyVnkVhW2W91gyWMdDS3jQ9s2VSd8tnbXBDa5jq0HuK5vAOD46/Wo5Jy++jcOnZjTg9xKhaLf2FfibFKi990ip8Lji0QhEgBBy9lbxoHV2xDhWN/2KV8D4HWqBHuC9JDl+FqHB/DsM0Pyx+NwzjkDwEzUSxuGMxlIBFNAtluFQMK2LdwkLcTWu/vsNkDlSBWuoK2ekjgk3uXHjwBlK7/PyQQnU9kJRp0dGeeEZofwWyWLb4YhSA/NJX9FI='
 kafka:
-  zookeeper: kafka-0.kafka:9093,kafka-1.kafka:9093,kafka-2.kafka:9093
+  zookeeper: kafka-0.kafka:9093
 #  zookeeper: vbc-kafka:9092
   group:
     prefix: vbc-nodes
