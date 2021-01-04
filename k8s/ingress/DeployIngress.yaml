@@ -8,8 +8,7 @@ metadata:
 spec:
   tls:
     - hosts:
-      - zenvault.eastus.cloudapp.azure.com
-      - vbc.eastus.cloudapp.azure.com
+      - zerodownkuber.eastus2.cloudapp.azure.com
       secretName: zenvault-stag-ingress-tls
   rules:
   - host: zenvault.eastus.cloudapp.azure.com
@@ -19,7 +18,7 @@ spec:
         backend:
           serviceName: vbc-switch
           servicePort: 7009
-  - host: vbc.eastus.cloudapp.azure.com
+  - host: zerodownkuber.eastus2.cloudapp.azure.com
     http:
       paths:
       - path: /

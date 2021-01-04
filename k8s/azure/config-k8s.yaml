@@ -7,7 +7,7 @@ spec:
     app: vbc-config
   ports:
     - port: 8888
-  type: NodePort
+  type: LoadBalancer
 ---
 apiVersion: apps/v1
 kind: Deployment

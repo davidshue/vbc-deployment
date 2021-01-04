@@ -11,7 +11,7 @@ kubectl apply -f DeployIngress.yaml
 openssl req -x509 -nodes -days 365 -newkey rsa:2048 \
     -out zenvault-stag-tls.crt \
     -keyout zenvault-stag-tls.key \
-    -subj "/CN=zenvault.eastus.cloudapp.azure.com//O=zenvault-stag-tls"
+    -subj "/CN=zerodownkuber.eastus2.cloudapp.azure.com//O=zenvault-stag-tls"
 
 
 kubectl create secret tls zenvault-stag-ingress-tls \

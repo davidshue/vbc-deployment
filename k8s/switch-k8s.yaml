@@ -9,15 +9,15 @@ spec:
   ports:
     -
       name: http
-      nodePort: 31009
+#      nodePort: 31009
       port: 7009
-      targetPort: 7009
-    -
-      name: https
-      nodePort: 31443
-      port: 7443
-      targetPort: 7443
-  type: NodePort
+#      targetPort: 7009
+#    -
+#      name: https
+#      nodePort: 31443
+#      port: 7443
+#      targetPort: 7443
+  type: LoadBalancer
 
 ---
 apiVersion: apps/v1
